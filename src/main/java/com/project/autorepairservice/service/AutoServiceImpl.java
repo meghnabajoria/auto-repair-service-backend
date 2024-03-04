@@ -8,8 +8,11 @@ import com.project.autorepairservice.service.helpers.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
-public class AutoServiceImpl implements AutoService{
+public class  AutoServiceImpl implements AutoService{
 
     @Autowired
     ServiceRepository serviceRepository;
@@ -34,4 +37,11 @@ public class AutoServiceImpl implements AutoService{
         ServiceModel model = serviceRepository.insert(serviceModel);
         return model.getId();
     }
+
+
+    @Override
+    public List<ServiceModel> findAll(){
+        return serviceRepository.findAll();
+    }
+
 }

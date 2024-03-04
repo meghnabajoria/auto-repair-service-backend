@@ -16,4 +16,6 @@ public class ServiceModel {
     private String ServiceType;
     private String imgUrl;
     private List<Integer> offeredAtStores;
+
+
 }
