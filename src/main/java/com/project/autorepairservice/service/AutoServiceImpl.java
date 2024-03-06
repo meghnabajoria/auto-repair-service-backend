@@ -20,7 +20,6 @@ public class  AutoServiceImpl implements AutoService{
     public String addService(ServiceRequest request) {
         if (request.getName() == null ||
                 request.getName().isEmpty() ||
-                request.getDesc() == null ||
                 request.getDesc().isEmpty()) {
             throw new ServiceException("Service name or description cannot be null");
         }
@@ -43,5 +42,4 @@ public class  AutoServiceImpl implements AutoService{
     public List<ServiceModel> findAll(){
         return serviceRepository.findAll();
     }
-
 }

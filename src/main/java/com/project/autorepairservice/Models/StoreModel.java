@@ -1,26 +1,22 @@
 package com.project.autorepairservice.Models;
 
+
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Builder
 @Data
-@Document(collection = "serviceModel")
-public class ServiceModel {
-
+@Builder
+@Document(collection = "store")
+public class StoreModel {
     @Id
     private String id;
     private String name;
-    private String desc;
-    private String ServiceType;
+//    private Address address;
+    private ContactDetails contactDetails;
     private String imgUrl;
-    private List<Integer> offeredAtStores;
-
-
+    private List<ServicesOffered> servicesOfferedList;
 }
