@@ -8,8 +8,9 @@ import com.project.autorepairservice.service.helpers.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class  AutoServiceImpl implements AutoService{
@@ -39,7 +40,16 @@ public class  AutoServiceImpl implements AutoService{
 
 
     @Override
-    public List<ServiceModel> findAll(){
-        return serviceRepository.findAll();
+    public List<ServiceResponse> findAll(){
+        List<ServiceModel> list = serviceRepository.findAll();
+        List<ServiceResponse> responseList = new ArrayList<>();
+        for(ServiceModel model: list) {
+            ServiceResponse s = ServiceResponse.builder()
+                    .name(model.getName())
+                    .desc(model.getDesc())
+                    .build();
+            responseList.add(s);
+        }
+        return responseList;
     }
 }

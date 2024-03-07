@@ -10,9 +10,8 @@ import java.util.List;
 @Data
 @Builder
 public class StoreRequest {
-    private String id;
     private String name;
     private ContactDetails contactDetails;
     private String imgUrl;
-    private List<ServicesOffered> servicesOfferedList;
+    private List<ServicesOfferedRequest> servicesOfferedList;
 }

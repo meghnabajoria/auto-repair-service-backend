@@ -15,17 +15,19 @@ public class serviceController {
 
     @Autowired
     AutoService autoService;
-    @GetMapping("/test")
-    public String test() {
-        return "The first api is working";
-    }
     @PostMapping("/addService")
     public String addService(@RequestBody ServiceRequest service) {
         return autoService.addService(service);
     }
 
+//    @GetMapping("/{id}")
+//    public ServiceResponse findById(@PathVariable String id){
+//        return autoService.findById(id);
+//    }
+
     @GetMapping("/findall")
-    public List<ServiceModel> getAll(){
+    public List<ServiceResponse> getAll(){
         return autoService.findAll();
     }
 }
+

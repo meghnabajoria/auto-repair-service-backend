@@ -9,5 +9,5 @@ import java.util.List;
 public interface AutoService {
     String addService(ServiceRequest request);
 
-    List<ServiceModel> findAll();
+    List<ServiceResponse> findAll();
 }
