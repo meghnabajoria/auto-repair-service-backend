@@ -25,3 +25,15 @@ type ServiceModel {
     imgUrl: String!
     offeredAtStores: [Int]!
 }
+
+type Mutation {
+    addService(input: ServiceRequest): ServiceModel
+}
+
+input ServiceRequest {
+    name: String!
+    desc: String!
+    serviceType: String!
+    imgUrl: String!
+    offeredAtStores: [Int]!
+}
