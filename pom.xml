@@ -16,18 +16,6 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.netflix.graphql.dgs</groupId>
-				<artifactId>graphql-dgs-platform-dependencies</artifactId>
-				<!-- The DGS BOM/platform dependency. This is the only place you set version of DGS -->
-				<version>4.9.16</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -95,13 +83,20 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.netflix.graphql.dgs</groupId>
-			<artifactId>graphql-dgs-spring-boot-starter</artifactId>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphql-java-tools</artifactId>
+			<version>5.2.4</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphiql-spring-boot-starter</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.graphql-java/graphiql-spring-boot-starter -->
+		<dependency>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphiql-spring-boot-starter</artifactId>
+			<version>3.0.3</version>
 		</dependency>
 	</dependencies>
 

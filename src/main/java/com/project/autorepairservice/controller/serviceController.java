@@ -1,5 +1,6 @@
 package com.project.autorepairservice.controller;
 
+import com.project.autorepairservice.Models.ServiceModel;
 import com.project.autorepairservice.dto.request.ServiceRequest;
 import com.project.autorepairservice.dto.response.ServiceResponse;
 import com.project.autorepairservice.service.AutoService;
@@ -18,6 +19,11 @@ public class serviceController {
     public String addService(@RequestBody ServiceRequest service) {
         return autoService.addService(service);
     }
+
+//    @GetMapping("/{id}")
+//    public ServiceResponse findById(@PathVariable String id){
+//        return autoService.findById(id);
+//    }
 
     @GetMapping("/findall")
     public List<ServiceResponse> getAll(){
