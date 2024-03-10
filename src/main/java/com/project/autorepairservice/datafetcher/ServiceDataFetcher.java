@@ -42,3 +42,4 @@ public class ServiceDataFetcher {
         return serviceModelRepository.save(newService);
     }
 }
+
