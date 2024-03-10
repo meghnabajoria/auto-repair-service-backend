@@ -1,7 +1,7 @@
 package com.project.autorepairservice.service;
 
 import com.project.autorepairservice.Models.ServicesOffered;
-import com.project.autorepairservice.Models.Store;
+import com.project.autorepairservice.Models.StoreModel;
 import com.project.autorepairservice.dto.request.ServicesOfferedRequest;
 import com.project.autorepairservice.dto.request.StoreRequest;
 import com.project.autorepairservice.dto.response.StoreResponse;
@@ -29,7 +29,7 @@ public class StoreServiceImpl implements StoreService {
         //Todo add logic for populative service id while adding a store
 
 
-        Store store = Store
+        StoreModel storeModel = com.project.autorepairservice.Models.StoreModel
                 .builder()
                 .name(request.getName())
                 .contactDetails(request.getContactDetails())
@@ -37,7 +37,7 @@ public class StoreServiceImpl implements StoreService {
                 .servicesOfferedList(convertToServiceOffered(request.getServicesOfferedList()))
                 .build();
 
-        Store model = storeRepository.insert(store);
+        StoreModel model = storeRepository.insert(storeModel);
         return model.getId();
     }
 
@@ -60,21 +60,21 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public StoreResponse findStoreByID(String id) {
-        Optional<Store> storeOptional = storeRepository.findById(id);
+        Optional<StoreModel> storeOptional = storeRepository.findById(id);
         return storeOptional.map(this::convertToStoreResponse).orElse(null);
     }
 
 
     @Override
-    public List<Store> findAll() {
+    public List<StoreModel> findAll() {
         return storeRepository.findAll();
     }
 
-    private StoreResponse convertToStoreResponse(Store store) {
+    private StoreResponse convertToStoreResponse(StoreModel storeModel) {
         return StoreResponse.builder()
-                .name(store.getName())
-                .contactDetails(store.getContactDetails())
-                .imgUrl(store.getImgUrl())
+                .name(storeModel.getName())
+                .contactDetails(storeModel.getContactDetails())
+                .imgUrl(storeModel.getImgUrl())
                 .build();
     }
 }

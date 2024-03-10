@@ -1,4 +1,4 @@
-package com.project.autorepairservice.service;
+package com.project.autorepairservice.datafetcher;
 
 
 import com.netflix.graphql.dgs.DgsComponent;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 @DgsComponent
-public class ServiceModelDataFetcher {
+public class ServiceDataFetcher {
     @Autowired
     private ServiceRepository serviceModelRepository;
 
@@ -22,6 +22,6 @@ public class ServiceModelDataFetcher {
 
     @DgsQuery(field = "service")
     public ServiceModel getServiceById(@InputArgument String id) {
-        return serviceModelRepository.findById(Integer.valueOf(id)).orElse(null);
+        return serviceModelRepository.findById(id).orElse(null);
     }
 }
