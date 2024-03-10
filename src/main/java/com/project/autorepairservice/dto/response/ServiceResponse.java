@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 public class ServiceResponse {
     private String name;
-        private String desc;
+    private String desc;
 
 }
