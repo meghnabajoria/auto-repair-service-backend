@@ -1,22 +1,18 @@
-#type Query {
-#    shows(titleFilter: String): [Show]
-#}
-#
-#type Show {
-#    title: String
-#    releaseYear: Int
-#}
-
-
 schema {
     query : Query
 }
 
 type Query {
+    # Services
     services: [ServiceModel]
     service(id: String): ServiceModel
+
+    # Stores
+    stores: [StoreModel]
+    storeModel(id: String): StoreModel
 }
 
+# ==== Service
 type ServiceModel {
     id: ID!
     name: String!
@@ -24,6 +20,25 @@ type ServiceModel {
     serviceType: String!
     imgUrl: String!
     offeredAtStores: [Int]!
+}
+
+# ==== Stores
+type StoreModel {
+    id: ID!
+    name: String!
+    contactDetails: ContactDetails!
+    imgUrl: String!
+    servicesOfferedList: [ServicesOffered!]!
+}
+
+type ContactDetails {
+    ownerNumber: String
+    storeNumber: String
+}
+
+type ServicesOffered {
+    id: ID!
+    name: String!
 }
 
 type Mutation {

@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Builder
 @Document(collection = "store")
-public class Store {
+public class StoreModel {
     @Id
     private String id;
     private String name;
